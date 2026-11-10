@@ -1,0 +1,8 @@
+{
+ "prompt": "Stylised 3D action-adventure game with a hand-painted gouache look and soft brush textures, bright midday sun over a dry terracotta city of aqueducts, arcades and stepped stone cisterns: a small, friendly, chunky fired-clay golem with rounded red-brown limbs and two carved eye holes climbs a sandstone wall, grabs the top ledge and pulls itself onto an empty aqueduct channel; it heaves a wooden sluice gate open and bright turquoise water gushes into the dry cistern below, lifting a floating wooden crate up toward the ledge. Tall arches, ochre plaster towers and a pale blue sky with soft clouds behind. Steady third-person camera behind and slightly above the golem. No text, no HUD, no people.",
+ "duration": 10,
+ "resolution": "1080P",
+ "aspect_ratio": "16:9",
+ "prompt_expansion_mode": "disabled",
+ "seed": 101
+}

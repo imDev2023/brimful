@@ -1,0 +1,139 @@
+[
+ {
+  "name": "concept-video",
+  "endpoint": "minimax/h3-max/text-to-video",
+  "started": "2026-11-10T06:48:02.072Z",
+  "seconds": 22.3,
+  "request_id": "01a1c436-b6ea-7053-914f-045bb440d20a",
+  "billing": {
+   "x-fal-billable-units": "32.0",
+   "x-fal-request-id": "01a1c436-b6ea-7053-914f-045bb440d20a",
+   "x-fal-served-from": "6fb565b8-0a6f-420b-aa5c-90d3a079cd95"
+  },
+  "arguments": {
+   "prompt": "Stylised 3D action-adventure game with a hand-painted gouache look and soft brush textures, bright midday sun over a dry terracotta city of aqueducts, arcades and stepped stone cisterns: a small, friendly, chunky fired-clay golem with rounded red-brown limbs and two carved eye holes climbs a sandstone wall, grabs the top ledge and pulls itself onto an empty aqueduct channel; it heaves a wooden sluice gate open and bright turquoise water gushes into the dry cistern below, lifting a floating wooden crate up toward the ledge. Tall arches, ochre plaster towers and a pale blue sky with soft clouds behind. Steady third-person camera behind and slightly above the golem. No text, no HUD, no people.",
+   "duration": 10,
+   "resolution": "1080P",
+   "aspect_ratio": "16:9",
+   "prompt_expansion_mode": "disabled",
+   "seed": 101
+  },
+  "result": {
+   "video": {
+    "url": "https://v3b.fal.media/files/b/0ab1dfd0/WeD9_DivC1lpwfB_MLWea_minimax-h3.mp4",
+    "content_type": "video/mp4",
+    "file_name": "WeD9_DivC1lpwfB_MLWea_minimax-h3.mp4",
+    "file_size": 23594619
+   },
+   "expanded_prompt": null,
+   "timings": {
+    "inference": 8.780103307999525
+   }
+  },
+  "files": [
+   "raw/concept-video.mp4"
+  ]
+ },
+ {
+  "name": "mood-stylised",
+  "endpoint": "fal-ai/nano-banana-pro/edit",
+  "started": "2026-11-10T07:06:38.090Z",
+  "seconds": 42,
+  "request_id": "01a1c447-bded-7142-bafe-b590aa66b777",
+  "billing": {
+   "x-fal-billable-units": "2",
+   "x-fal-request-id": "01a1c447-bded-7142-bafe-b590aa66b777",
+   "x-fal-served-from": "9d3345eb-719c-4548-bf95-dce04a583628"
+  },
+  "arguments": {
+   "prompt": "Use the first reference image only for the world's art style, materials, palette and lighting: bright midday sun, sunlit terracotta adobe and red-brick arches, warm brown shadows that never go black, clear turquoise water, and a soft, clean stylised 3D look. Use the second only for the hero's clay material and build, not its cube head. Do not copy either image's composition or camera. Make a gameplay screenshot of a third-person 3D platformer, with the camera behind and slightly above the hero, about 4 m back, looking up a tall sunlit adobe wall in a dry desert city of aqueducts. The hero is seen from behind: a small, chunky fired-clay golem with a rounded head, a box torso, ball-jointed limbs and round mitten hands, climbing the wall with its chest to the wall and both hands gripping a protruding brick. A clear climbing route runs up the wall: protruding bricks, wooden beam ends and a ledge lip in a lighter, worn tone, up to a dry brick aqueduct channel at the top with a closed two-leaf wooden sluice gate. Red-brick arches, palm crowns and a pale blue sky with soft clouds behind. No text, no HUD, no people, no other characters.",
+   "image_urls": [
+    "https://v3b.fal.media/files/b/0ab1e02a/TYGEymj0UJBGQKbwRWtw-_world-1.75s.jpg",
+    "https://v3b.fal.media/files/b/0ab1e02a/pyd81LdTzrpeqsmxT5deL_hero-9.5s.jpg"
+   ],
+   "num_images": 2,
+   "aspect_ratio": "16:9",
+   "resolution": "2K",
+   "output_format": "png",
+   "seed": 8001
+  },
+  "result": {
+   "images": [
+    {
+     "url": "https://v3b.fal.media/files/b/0ab1e040/nvw5ydOKes_gR3CT8CFUb_8dRCcvaP.png",
+     "content_type": "image/png",
+     "file_name": "nvw5ydOKes_gR3CT8CFUb_8dRCcvaP.png",
+     "file_size": null,
+     "width": 2752,
+     "height": 1536
+    },
+    {
+     "url": "https://v3b.fal.media/files/b/0ab1e040/Gq71Ljh72nsZ8kVkdJlva_vkPATAmp.png",
+     "content_type": "image/png",
+     "file_name": "Gq71Ljh72nsZ8kVkdJlva_vkPATAmp.png",
+     "file_size": null,
+     "width": 2752,
+     "height": 1536
+    }
+   ],
+   "description": "",
+   "conversations": [],
+   "grounding_metadata": []
+  },
+  "files": [
+   "raw/mood-stylised-1.png",
+   "raw/mood-stylised-2.png"
+  ]
+ },
+ {
+  "name": "mood-painted",
+  "endpoint": "fal-ai/nano-banana-pro/edit",
+  "started": "2026-11-10T07:07:21.000Z",
+  "seconds": 142.3,
+  "request_id": "01a1c448-6fcf-7753-95db-c0ac8228c19c",
+  "billing": {
+   "x-fal-billable-units": "2",
+   "x-fal-request-id": "01a1c448-6fcf-7753-95db-c0ac8228c19c",
+   "x-fal-served-from": "d236ca09-2a91-4eb9-aa5a-0c40ce30a8f1"
+  },
+  "arguments": {
+   "prompt": "Use the first reference image only for the world's palette and lighting: bright midday sun, sunlit terracotta adobe and red-brick arches, warm brown shadows that never go black, clear turquoise water. Render it with a hand-painted gouache look: visible soft brush strokes and painted texture on every surface, like a painted storybook rendered in 3D. Use the second image only for the hero's clay material and build, not its cube head. Do not copy either image's composition or camera. Make a gameplay screenshot of a third-person 3D platformer, with the camera behind and slightly above the hero, about 4 m back, looking up a tall sunlit adobe wall in a dry desert city of aqueducts. The hero is seen from behind: a small, chunky fired-clay golem with a rounded head, a box torso, ball-jointed limbs and round mitten hands, climbing the wall with its chest to the wall and both hands gripping a protruding brick. A clear climbing route runs up the wall: protruding bricks, wooden beam ends and a ledge lip in a lighter, worn tone, up to a dry brick aqueduct channel at the top with a closed two-leaf wooden sluice gate. Red-brick arches, palm crowns and a pale blue sky with soft clouds behind. No text, no HUD, no people, no other characters.",
+   "image_urls": [
+    "https://v3b.fal.media/files/b/0ab1e02a/TYGEymj0UJBGQKbwRWtw-_world-1.75s.jpg",
+    "https://v3b.fal.media/files/b/0ab1e02a/pyd81LdTzrpeqsmxT5deL_hero-9.5s.jpg"
+   ],
+   "num_images": 2,
+   "aspect_ratio": "16:9",
+   "resolution": "2K",
+   "output_format": "png",
+   "seed": 8002
+  },
+  "result": {
+   "images": [
+    {
+     "url": "https://v3b.fal.media/files/b/0ab1e044/GKj26xxUwsy9idTJaTG_2_2KK3lBy0.png",
+     "content_type": "image/png",
+     "file_name": "GKj26xxUwsy9idTJaTG_2_2KK3lBy0.png",
+     "file_size": null,
+     "width": 2752,
+     "height": 1536
+    },
+    {
+     "url": "https://v3b.fal.media/files/b/0ab1e044/rIl7NIHeIkfiwdXnTKZyL_s2DVwtMQ.png",
+     "content_type": "image/png",
+     "file_name": "rIl7NIHeIkfiwdXnTKZyL_s2DVwtMQ.png",
+     "file_size": null,
+     "width": 2752,
+     "height": 1536
+    }
+   ],
+   "description": "",
+   "conversations": [],
+   "grounding_metadata": []
+  },
+  "files": [
+   "raw/mood-painted-1.png",
+   "raw/mood-painted-2.png"
+  ]
+ }
+]
