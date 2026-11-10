@@ -1,6 +1,6 @@
 # Brimful
 
-A desktop 3D platformer in Unity, built for x-gaming#8 (github.com/imDev2023/x-gaming): a clay golem climbs a dry aqueduct city and fills it with water on the way up, made the way Sumiro was, with our own world, hero and levels.
+A desktop 3D platformer in Unity, built for x-gaming#8 (github.com/imDev2023/x-gaming): a young apprentice sluice-keeper climbs a dry aqueduct city and fills it with water on the way up, made the way Sumiro was, with our own world, hero and levels.
 On 2026-11-10 the owner chose this idea, Unity desktop, and about 10 USD of generation up to a playable prototype.
 Read [SPEC.md](SPEC.md) for the game and what the concept video got wrong, and x-gaming's `WORKFLOW.md` (`../x-gaming/WORKFLOW.md`) for the asset pipeline, before changing anything.
 
@@ -14,7 +14,7 @@ Read [SPEC.md](SPEC.md) for the game and what the concept video got wrong, and x
 - The repo is public: no keys, no raw paid outputs (they live in the gitignored `raw/`, the only copy, never delete it), and no copied text or screenshots of other people's work.
 - Licence, as for Dockstack and Lantern River: code MIT No Attribution, our assets CC0.
 - Generate only the solid hero objects, from 3 or 4 views each; build walls, arches, stairs and channels in code with CC0 textures at real size; dress with CC0 models (Poly Haven, Poly Pizza).
-- The hero's head must not recall Danbo (a cube head with two round eye holes, as the concept video drew it): change it on the hero sheet.
+- The hero is a proper human being (owner, 2026-11-10), not the clay golem the video and first stills show: fitted clothes in teal so the hero stands off the orange walls, nothing loose (no cape, hood, scarf, sash or long hair), hands empty; see SPEC.md, "The hero becomes human".
 - Lamplighter (#7) is paused: never change `../lamplighter`.
   Its tools (`tools/rig_hero.py`, `tools/simplify.sh`, `tools/cut_views.py`) and Lantern River's `tools/lowpoly_bake.py` are copied in from GitHub when needed, then kept here.
 
@@ -27,7 +27,7 @@ Read [SPEC.md](SPEC.md) for the game and what the concept video got wrong, and x
   Only the owner can allow a program in LuLu; a new editor version is a new path and needs its own rule.
 - Open the project headless with `/Applications/Unity/Hub/Editor/6000.6.8f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -projectPath <this folder> -logFile <log>`, started with `run_in_background`; the package manager's own log is `Logs/upm.log`.
 - Unity's agent plugin edits scenes and assets directly, so commit before every larger change.
-  The owner installs it for this folder only with `claude plugin marketplace add Unity-Technologies/unity-agent-plugin` and `claude plugin install unity@unity-agent-plugin --scope local`; it loads in a session started here.
+  The owner installed it for this folder only on 2026-11-10 (`claude plugin install unity@unity-agent-plugin --scope local`, enabled in the git-ignored `.claude/settings.local.json`); it loads in a session started in this folder, and `/unity:` lists its skills.
 - Characters go to Unity as FBX with Mixamo bone names, which the Humanoid importer maps by itself (Kensei); check the export once with a deliberately lopsided marker before trusting it.
 - Steam bans games that issue or trade crypto or NFTs (its 2021 rule, still in place on 2026-11-10), so a blockchain build ships from our own site or Epic.
   Keep chain code out of the game's rules; nothing touches a chain until the game is built.

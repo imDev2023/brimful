@@ -6,10 +6,11 @@ On 2026-11-10 the owner chose this idea from three, Unity desktop as the engine,
 
 ## The pitch
 
-A small fired-clay golem wakes in the lowest basin of a sun-baked terracotta city whose aqueducts have run dry.
-It climbs walls, hangs from ledges and leaps between arcades on its way up to the reservoir at the top.
-Each sluice it opens sends water after it, and the rising water lifts crates and rafts into new ledges, so the way up is also the way the city fills again.
+A young apprentice sluice-keeper sets out from the lowest basin of a sun-baked terracotta city whose aqueducts have run dry.
+The apprentice climbs walls, hangs from ledges and leaps between arcades on the way up to the reservoir at the top.
+Each sluice opened sends water after them, and the rising water lifts crates and rafts into new ledges, so the way up is also the way the city fills again.
 Chapters: the dry basin, the arcades, the water stairs and the high reservoir.
+The hero began as a clay golem; on 2026-11-10 the owner asked for a proper human being instead (see "The hero becomes human" below), so the video and the first mood stills still show the golem.
 
 ## How it is made
 
@@ -22,7 +23,7 @@ Sumiro's method ([note](https://github.com/imDev2023/x-gaming/blob/main/sources/
 5. Concept art for each chapter in the approved style.
 6. Each chapter built from its concept, then played, reported and fixed in a loop.
 
-Only the few solid hero objects are generated: the golem, a sluice gate, a crate or raft.
+Only the few solid hero objects are generated: the hero, a sluice gate, a crate or raft.
 Walls, arches, stairs and channels are built in code with CC0 textures mapped at real size, and CC0 models dress the rest.
 
 ## Concept video prompt
@@ -153,4 +154,35 @@ Measured as 16 x 16 px averages of the 2K images:
 
 ### Recommendation
 
-Take painted-1's look (hand-painted texture on solid 3D forms, which Unity can render with painted albedo textures, soft light and a painted sky) with stylised-2's camera, and carry painted-2's round head and lifting-frame sluice gate into the hero sheet and the props.
+Take painted-1's look (hand-painted texture on solid 3D forms, which Unity can render with painted albedo textures, soft light and a painted sky) with stylised-2's camera, and carry painted-2's lifting-frame sluice gate into the props.
+
+## The hero becomes human
+
+On 2026-11-10, after the mood stills, the owner asked for the hero to be a proper human being, and chose to see a young woman and a young man side by side.
+The design, the same for both:
+
+- About twenty, an apprentice sluice-keeper, with stylised but natural human proportions and sun-browned skin.
+- A close-fitting sleeveless tunic in deep teal, belted and tucked in: teal stands off the orange walls, where the golem's sunlit head vanished into them.
+- Fitted dark-brown trousers bound at the shins, soft leather climbing shoes, leather wrist wraps and a small satchel strapped tight.
+- Nothing loose: no cape, hood, scarf or long hair, since generators and code rigs handle fitted clothes well and loose cloth badly (Lamplighter's tunic hem pushed through the trousers); no sash or sword either, which keeps the hero clear of well-known desert-parkour heroes.
+- Hands empty, so nothing is welded into the mesh.
+- The woman wears her dark hair in a tight low bun; the man's is short-cropped.
+
+The stills are edited from painted-1 for the look, with the camera behind the hero and a little to the left so the face shows in profile ([prompts/mood-human-woman.json](prompts/mood-human-woman.json), [prompts/mood-human-man.json](prompts/mood-human-man.json)).
+Two calls on 2026-11-10, 2 images each, 0.60 USD in all; small copies are `concept/mood/human-*.jpg`, side by side in [concept/human-sheet.jpg](concept/human-sheet.jpg).
+
+All four show a readable human climber in painted-1's world: chest to the wall, hands gripping a hold, feet on others, face in profile, and a sluice gate under a lifting frame at the top of the wall.
+The teal tunic stands well off the wall (luma 51 to 80 against the wall's 148, 14 x 14 px averages); sunlit skin comes close to the wall's tone (man-1's upper arm `#e69655`, luma 162, against `#d58551`, 146), but the hair and tunic break the outline.
+
+### What is wrong in the hero stills
+
+- **In all four:** the edit kept painted-1's composition (the same wall, holds, arch, posts and crates) although the prompt said not to; water still runs in the channel below the dry city, and the wooden posts are still cut off at the bottom left; the satchel moved from the back to the hip; the tunic flares over the hips instead of staying fitted, which is loose cloth for a rig.
+- **woman-1:** the closest to the design: natural proportions, the low bun as asked, a believable grip on the brick overhead with one knee raised; she looks sideways rather than up at the next hold.
+- **woman-2:** the bun sits on top of the head, not low as asked; the trousers balloon at the thighs, and her proportions read squat (short legs, wide hips).
+- **man-1:** the best climbing pose, reaching up to the next stone with a foot on a lower one, and natural proportions; his wrist wraps are white cloth, not leather, and two dark smudges at the top left are shadows cast by beam ends that are not in the frame.
+- **man-2:** his head is large for his body, so he reads as a young teenager, his feet look bare, and the pose is static, hugging the wall; the gate's frame has no lifting gear.
+
+### Recommendation
+
+woman-1 or man-1, whichever the owner prefers: both have natural proportions and a pose that reads as climbing.
+The hero sheet fixes the drift from the design: a fitted tunic that ends at the hip without a flare, leather wrist wraps, and the satchel either strapped to the back or kept as a hip pouch, both solid enough to generate and rig.

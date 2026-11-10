@@ -1,6 +1,6 @@
 # Brimful
 
-A small clay golem climbs a sun-baked city whose aqueducts have run dry, opening the sluices on its way up so the water follows and the city fills again.
+A young apprentice sluice-keeper climbs a sun-baked city whose aqueducts have run dry, opening the sluices on the way up so the water follows and the city fills again.
 A 3D platformer with climbing, ledges, parkour and light water puzzles, for the desktop, built in Unity.
 
 It is built for [x-gaming#8](https://github.com/imDev2023/x-gaming/issues/8), made the way [Sumiro](https://github.com/imDev2023/x-gaming/blob/main/sources/2026-11-04-xikhar-sumiro.md) was, with our own world, hero and levels.
@@ -9,9 +9,11 @@ It is built for [x-gaming#8](https://github.com/imDev2023/x-gaming/issues/8), ma
 ## Where it stands
 
 - Done: the [concept video](concept/video.mp4) and its [contact sheet](concept/sheet.jpg), with the spec written from its frames, including everything it got wrong: [SPEC.md](SPEC.md).
-- Done: four [mood stills](concept/mood-sheet.jpg) from the gameplay camera, two stylised and two painted, judged in SPEC.md; they wait for the owner's pick.
+- Done: four [mood stills](concept/mood-sheet.jpg) from the gameplay camera, two stylised and two painted, judged in SPEC.md.
+- Done: the hero became a human apprentice sluice-keeper at the owner's request; four [hero stills](concept/human-sheet.jpg), two of a young woman and two of a young man, wait for the owner's pick.
+- Done: the Unity project (Unity 6.6, URP), trimmed of the template's analytics, purchasing and other packages a desktop platformer does not use.
 - Next: the hero's 4-view sheet, the Tripo model, the rig, and a playable prototype of one stretch.
-- Generation spent so far: 1.72 USD of the 10 USD planned up to the prototype.
+- Generation spent so far: 2.32 USD of the 10 USD planned up to the prototype.
 
 ## How it is built
 

@@ -1,0 +1,11 @@
+{
+ "prompt": "Use the reference image only for its art style, materials, palette and light: hand-painted texture on solid 3D forms, bright midday sun, terracotta adobe, red-brick arches, warm brown shadows that never go black, turquoise water. Do not copy its composition, camera or character. Make a gameplay screenshot of a third-person 3D platformer, with the camera behind the hero and a little to the left, slightly above, about 3 m back, looking up a tall sunlit adobe wall in a dry desert city of aqueducts. The hero is a young woman of about twenty, an apprentice sluice-keeper, with stylised but natural human proportions: sun-browned skin, dark hair tied in a tight low bun, a close-fitting sleeveless tunic in deep teal, belted at the waist and tucked in, fitted dark-brown trousers bound at the shins with cloth bands, soft leather climbing shoes, leather wrist wraps, and a small satchel strapped tight to the back; no cape, hood, scarf or anything loose, and nothing in the hands. The hero climbs with chest to the wall, both hands gripping a protruding brick, head turned to look up at the next hold so the face shows in profile. A clear route of protruding bricks, pale stones and wooden beam ends leads up to a coping lip and a dry channel with a closed wooden sluice gate under a lifting frame. Red-brick arches, palm crowns and a pale blue sky behind. No text, no HUD, no other people.",
+ "image_urls": [
+  "https://v3b.fal.media/files/b/0ab1e0d3/9x_1Iq7WwW3vkzxPM1hbL_look-painted-1.jpg"
+ ],
+ "num_images": 2,
+ "aspect_ratio": "16:9",
+ "resolution": "2K",
+ "output_format": "png",
+ "seed": 8101
+}
