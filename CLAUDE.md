@@ -14,7 +14,10 @@ Read [SPEC.md](SPEC.md) for the game and what the concept video got wrong, and x
 - The repo is public: no keys, no raw paid outputs (they live in the gitignored `raw/`, the only copy, never delete it), and no copied text or screenshots of other people's work.
 - Licence, as for Dockstack and Lantern River: code MIT No Attribution, our assets CC0.
 - Generate only the solid hero objects, from 3 or 4 views each; build walls, arches, stairs and channels in code with CC0 textures at real size; dress with CC0 models (Poly Haven, Poly Pizza).
-- The hero is a proper human being (owner, 2026-11-10), not the clay golem the video and first stills show: fitted clothes in teal so the hero stands off the orange walls, nothing loose (no cape, hood, scarf, sash or long hair), hands empty; see SPEC.md, "The hero becomes human".
+- The hero is a young woman, an apprentice sluice-keeper (owner, 2026-11-10), drawn from `concept/mood/human-woman-1.jpg`, not the clay golem the video and first stills show: fitted clothes in teal so she stands off the orange walls, nothing loose (no cape, hood, scarf, sash or long hair), hands empty; see SPEC.md, "The hero becomes human".
+- The look is painted-1's (painted texture on solid 3D forms) with stylised-2's camera; image edits copy the reference's composition even when told not to, so ask for a new view in words and check it.
+- The network here drops connections in bursts (2026-11-10): `tools/fal.ts` saves each submitted job to `raw/pending-<name>.json`, and `node tools/fal.ts --resume <name>` collects it; never resubmit a job that was submitted, since fal bills it anyway.
+  `fal-usage.ts` prices each call from its own billed units, because fal's usage API merges calls to one endpoint in the same minute.
 - Lamplighter (#7) is paused: never change `../lamplighter`.
   Its tools (`tools/rig_hero.py`, `tools/simplify.sh`, `tools/cut_views.py`) and Lantern River's `tools/lowpoly_bake.py` are copied in from GitHub when needed, then kept here.
 

@@ -10,7 +10,7 @@ It is built for [x-gaming#8](https://github.com/imDev2023/x-gaming/issues/8), ma
 
 - Done: the [concept video](concept/video.mp4) and its [contact sheet](concept/sheet.jpg), with the spec written from its frames, including everything it got wrong: [SPEC.md](SPEC.md).
 - Done: four [mood stills](concept/mood-sheet.jpg) from the gameplay camera, two stylised and two painted, judged in SPEC.md.
-- Done: the hero became a human apprentice sluice-keeper at the owner's request; four [hero stills](concept/human-sheet.jpg), two of a young woman and two of a young man, wait for the owner's pick.
+- Done: the hero became a human apprentice sluice-keeper at the owner's request; from four [hero stills](concept/human-sheet.jpg) the owner chose the young woman (woman-1).
 - Done: the Unity project (Unity 6.6, URP), trimmed of the template's analytics, purchasing and other packages a desktop platformer does not use.
 - Next: the hero's 4-view sheet, the Tripo model, the rig, and a playable prototype of one stretch.
 - Generation spent so far: 2.32 USD of the 10 USD planned up to the prototype.

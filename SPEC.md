@@ -182,7 +182,7 @@ The teal tunic stands well off the wall (luma 51 to 80 against the wall's 148, 1
 - **man-1:** the best climbing pose, reaching up to the next stone with a foot on a lower one, and natural proportions; his wrist wraps are white cloth, not leather, and two dark smudges at the top left are shadows cast by beam ends that are not in the frame.
 - **man-2:** his head is large for his body, so he reads as a young teenager, his feet look bare, and the pose is static, hugging the wall; the gate's frame has no lifting gear.
 
-### Recommendation
+### The pick
 
-woman-1 or man-1, whichever the owner prefers: both have natural proportions and a pose that reads as climbing.
-The hero sheet fixes the drift from the design: a fitted tunic that ends at the hip without a flare, leather wrist wraps, and the satchel either strapped to the back or kept as a hip pouch, both solid enough to generate and rig.
+The owner chose the young woman on 2026-11-10; woman-1 is the reference for the hero sheet, since woman-2 drifted further from the design.
+The sheet fixes the drift: a fitted tunic that ends at the hip without a flare, leather wrist wraps, and the hip pouch kept, which is solid enough to generate and rig.
