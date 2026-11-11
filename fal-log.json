@@ -285,5 +285,68 @@
    "raw/sheet-woman-1.png",
    "raw/sheet-woman-2.png"
   ]
+ },
+ {
+  "name": "hero3d-woman",
+  "endpoint": "tripo3d/h3.1/multiview-to-3d",
+  "started": "2026-11-11T05:08:03.896Z",
+  "seconds": 301.3,
+  "request_id": "01a1c901-9071-7ce1-81b6-810e8ffb1269",
+  "billing": {
+   "x-fal-billable-units": "60",
+   "x-fal-request-id": "01a1c901-9071-7ce1-81b6-810e8ffb1269",
+   "x-fal-served-from": "6e1ed015-ba2b-40a3-9f07-2b6b4e3c22bc"
+  },
+  "arguments": {
+   "image_urls": [
+    "https://v3b.fal.media/files/b/0ab1fae6/QjWxlXGQyn9VKTB_FdXTd_front.png",
+    "https://v3b.fal.media/files/b/0ab1fae6/i0BKlt3n97C40zn0l7kNO_left.png",
+    "https://v3b.fal.media/files/b/0ab1fae7/N9UYI2RYrlTSkKTzUGIUa_back.png"
+   ],
+   "geometry_quality": "detailed",
+   "texture_quality": "detailed",
+   "pbr": true,
+   "texture": true,
+   "texture_alignment": "original_image",
+   "model_seed": 8301,
+   "texture_seed": 8301
+  },
+  "result": {
+   "model_mesh": {
+    "url": "https://v3b.fal.media/files/b/0ab1ff49/sHE7dADug6sJUJrDP5XAT_model.glb",
+    "content_type": "model/gltf-binary",
+    "file_name": "model.glb",
+    "file_size": 62793628
+   },
+   "model_urls": {
+    "glb": {
+     "url": "https://v3b.fal.media/files/b/0ab1ff49/sHE7dADug6sJUJrDP5XAT_model.glb",
+     "content_type": "model/gltf-binary",
+     "file_name": "model.glb",
+     "file_size": 62793628
+    },
+    "fbx": null,
+    "base_model": null,
+    "pbr_model": {
+     "url": "https://v3b.fal.media/files/b/0ab1ff49/sHE7dADug6sJUJrDP5XAT_model.glb",
+     "content_type": "model/gltf-binary",
+     "file_name": "model.glb",
+     "file_size": 62793628
+    }
+   },
+   "rendered_image": {
+    "url": "https://v3b.fal.media/files/b/0ab1ff4b/x5UAJCwOFjGyxgT91dKuO_preview.png",
+    "content_type": "image/png",
+    "file_name": "preview.png",
+    "file_size": 109374
+   },
+   "task_id": "f4fac6ca-b7a0-458c-bd01-c9aec9015536"
+  },
+  "files": [
+   "raw/hero3d-woman-1.glb",
+   "raw/hero3d-woman-2.glb",
+   "raw/hero3d-woman-3.glb",
+   "raw/hero3d-woman-4.png"
+  ]
  }
 ]

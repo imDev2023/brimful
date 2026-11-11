@@ -86,11 +86,14 @@ const billing = Object.fromEntries([...result.headers].filter(([h]) => h.startsW
 const body = (await result.json()) as Record<string, unknown>;
 if (!result.ok) throw new Error(`result ${result.status}: ${JSON.stringify(body)}`);
 
-// Download every file URL in the result, untouched.
+// Download every file URL in the result once, untouched. (Tripo's result names one GLB
+// three times, as model_mesh, model_urls.glb and model_urls.pbr_model.)
 const files: string[] = [];
 const urls: string[] = [];
 const walk = (v: unknown): void => {
-  if (typeof v === 'string' && /^https:\/\/\S+\.(mp4|webm|png|jpg|jpeg|webp|glb|fbx|obj|zip|mp3|wav)$/i.test(v)) urls.push(v);
+  if (typeof v === 'string' && /^https:\/\/\S+\.(mp4|webm|png|jpg|jpeg|webp|glb|fbx|obj|zip|mp3|wav)$/i.test(v)) {
+    if (!urls.includes(v)) urls.push(v);
+  }
   else if (v && typeof v === 'object') Object.values(v).forEach(walk);
 };
 walk(body);
