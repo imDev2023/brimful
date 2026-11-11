@@ -1,0 +1,14 @@
+{
+ "image_urls": [
+  "https://v3b.fal.media/files/b/0ab1fae6/QjWxlXGQyn9VKTB_FdXTd_front.png",
+  "https://v3b.fal.media/files/b/0ab1fae6/i0BKlt3n97C40zn0l7kNO_left.png",
+  "https://v3b.fal.media/files/b/0ab1fae7/N9UYI2RYrlTSkKTzUGIUa_back.png"
+ ],
+ "geometry_quality": "detailed",
+ "texture_quality": "detailed",
+ "pbr": true,
+ "texture": true,
+ "texture_alignment": "original_image",
+ "model_seed": 8301,
+ "texture_seed": 8301
+}

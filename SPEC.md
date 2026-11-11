@@ -186,3 +186,38 @@ The teal tunic stands well off the wall (luma 51 to 80 against the wall's 148, 1
 
 The owner chose the young woman on 2026-11-10; woman-1 is the reference for the hero sheet, since woman-2 drifted further from the design.
 The sheet fixes the drift: a fitted tunic that ends at the hip without a flare, leather wrist wraps, and the hip pouch kept, which is solid enough to generate and rig.
+
+## The hero's sheet
+
+One call on 2026-11-11, 2 images at 2K 16:9, 0.30 USD (`fal-ai/nano-banana-pro/edit`), edited from a crop of the 2K woman-1 still ([prompts/refs/hero-woman-1.png](prompts/refs/hero-woman-1.png)) rather than the whole frame, so there was no wall or arch to copy.
+The prompt is [prompts/sheet-woman.json](prompts/sheet-woman.json): front, left, back and right in a row on flat grey, A-pose, hands open and empty, with no drawn labels, since the generator's labels cannot be trusted and the cut files are named by what each view shows.
+It places the pouch on her right hip and says where it must show in each view (the image's left in the front view, its right in the back view, facing us in the right view, hidden in the left), so the pouch is a check of which way each profile faces.
+Both sheets are side by side in [concept/hero-sheets.jpg](concept/hero-sheets.jpg); the 2K originals stay in `raw/`.
+
+Both fixed what the stills got wrong about the design: one figure at one scale in every view (1,404 to 1,406 px tall), a clean A-pose with open, empty hands clear of the body in the front and back views, leather wrist wraps, cloth bands crossed over the shins, and a low bun.
+
+Measured as 16 x 16 px averages of sheet 1:
+
+| Where | Colour | Luma |
+| --- | --- | --- |
+| Tunic, chest, front | `#355f65` | 83 |
+| Tunic, back | `#264649` | 61 |
+| Skin, upper arm | `#bc7249` to `#c0764c` | 131 to 136 |
+| Hair | `#2e2d33` to `#383840` | 46 to 57 |
+| Trousers | `#4c362b` to `#50382d` | 59 to 62 |
+| Belt and pouch | `#46322a` to `#4a352d` | 55 to 58 |
+| Background | `#dddddd` to `#dedede` | 221 to 222 |
+
+The tunic stands well off the sunlit walls (luma 147 to 158); the skin's orange is close to theirs, as in the stills.
+
+### What is wrong in each
+
+- **Both:** the tunic still runs to the upper thigh and widens a little towards the hem, though the prompt asked for it to end at the hip with no flare (the same drift as the stills), so the rig must hand part of each thigh's weight to the hips around the hem; a short lock of hair curls in front of each ear; the trousers balloon a little above the shin bands; she reads nearer sixteen than twenty, at about six heads tall.
+- **Sheet 1:** views 2 and 4 both face the image's left edge, so the left profile is drawn twice and there is no right view (neither shows the pouch, which is right for a left view); the belt is a soft wrapped band, not flat leather; the back of the tunic is darker than the front (luma 61 against 83).
+- **Sheet 2:** view 2 faces right and shows the pouch, a true right view, but view 4 faces left and shows the pouch as well, so it is view 2 mirrored rather than a left view; a lock of hair falls over the forehead.
+
+### The pick
+
+Sheet 1's front, left (view 2) and back, cut with [tools/cut_views.py](tools/cut_views.py) `--left 2 --right 0` into [concept/hero-views.jpg](concept/hero-views.jpg).
+fal's Tripo multiview endpoint takes 2 to 4 views in the order front, left, back and right, so only the last can be left out; a mirrored left view would have put the pouch on both hips, and sheet 2's left view does.
+Tripo infers her right side from the front and back views, which both show the pouch clearly.
