@@ -250,3 +250,45 @@ Motion comes from Quaternius's Universal Animation Library (CC0), the free Stand
 Neither pack has a ledge hang or a shimmy, in the free or the paid edition, so those are keyed on our rig for the prototype.
 [Assets/Editor/HeroCheck.cs](Assets/Editor/HeroCheck.cs) renders the prefab in eight poses from the front and the side: the A-posed rig retargets to a true T-pose (hands at 1.29 m against shoulders at 1.31 m), and the jog, jump, pull-up and push read naturally, with the tunic following the hips and no trousers through the hem.
 A foot joint dips 4 cm below the floor at one moment of the jog, which the controller's foot IK will take care of.
+
+## The prototype stretch
+
+Built on 2026-11-11, with no paid call: one stretch, playable on the desktop, made entirely in code by [Assets/Editor/StretchBuilder.cs](Assets/Editor/StretchBuilder.cs) into `Assets/Scenes/Stretch.unity`.
+A 25-second run is in [samples/stretch-run.mp4](samples/stretch-run.mp4), one frame a second in [samples/stretch-run-sheet.jpg](samples/stretch-run-sheet.jpg).
+
+### The route
+
+1. From the dry basin, push into the climbing face and climb its route of protruding bricks and pale stones to the lip, 4 m up.
+2. A watch house stands on the terrace over the climbing face, so there is no room to pull up there: hang from the lip, shimmy right along it to open ground, and pull up.
+3. Run and jump the 2.3 m gap to the sluice platform.
+4. Turn the wheel: the gate leaf lifts in its frame, water pours into the dry cistern beside the platform, and the crate on its floor rises with the water to the platform's height in about 9 s.
+5. Jump onto the crate, leap for the lip of the high arcade (5.4 m), pull up and walk to the goal.
+
+Falling into the gap or the dry cistern, or sinking in the water, sends the hero back to the last checkpoint.
+
+### How it works
+
+- [HeroController](Assets/Scripts/Hero/HeroController.cs) is a small state machine (ground, air, climb, hang, pull-up, interact) on a CharacterController; the code owns the state and cross-fades the Animator to each state's clip by name, so the two cannot disagree.
+- Climbing follows any collider marked [ClimbSurface](Assets/Scripts/World/ClimbSurface.cs); hanging uses [Ledge](Assets/Scripts/World/Ledge.cs) segments, and the pull-up only happens where a capsule fits on the top behind the lip.
+- While hanging, hand IK holds both hands on the lip and steps them along it for the shimmy, so no shimmy clip was needed; at the sluice, hand IK keeps both hands on the wheel's rim, hand over hand, as it turns.
+- The pull-up raises the body to `ClimbUp_1m`'s starting height (hands 0.98 m above the feet) and then plays it while the code lifts her the last metre over the lip, since the clip is in place.
+- Hang_Loop and Climb_Loop are keyed as Humanoid muscle curves by [Assets/Editor/HeroClips.cs](Assets/Editor/HeroClips.cs); on this avatar a thigh lifts forward as Upper Leg Front-Back falls (standing reads 0.6), Arm Front-Back swings the arm backward as it rises, and Arm Down-Up past 1 tips the arm behind the head, all found by rendering each try.
+- The camera is stylised-2's, behind and above at 3.4 m; it eases back behind her, follows her height gently in the air, and pulls in rather than passing through walls.
+- The look is the concept video's palette on box meshes whose UVs are in metres, with two procedural "painted" textures (ours, CC0), a warm high sun from the right, a weak warm bounce light so shadows stay brown, a trilight ambient, haze and a neutral grade.
+  Measured in the run: the darkest 1% of each frame sits at luma 45 to 59 (the concept video's darkest sample was 60), and nothing clips to white.
+
+### Checked end to end
+
+[StretchPilot](Assets/Scripts/Dev/StretchPilot.cs) plays the route with scripted input steered by markers the builder places, and logs every step and state change.
+`tools/playtest.sh` rebuilds the hero and the stretch, plays it in the Editor with the pilot and records it frame by frame on a fixed clock; the built Mac player runs the same pilot headless with `-batchmode -nographics -pilot`, and exits 0 when the pilot reaches the goal.
+Both passed on 2026-11-11 in 23.9 s of game time with no respawns.
+Checked over all 765 frames by script: the largest change from one frame to the next fell from 16.0 to 12.8 (median 1.4) after three fixes the run showed: the camera lurched up with each jump, swung at a flat 100 degrees a second when she turned, and the grab of the arcade's lip popped her up 0.3 m in one frame.
+
+### What is still wrong
+
+- The hold route is decoration: she climbs anywhere on the face's collider, and her hands and feet do not land on the holds.
+- The crate, the water and the falling water are flat: no splash, no ripples, no sound, and the water surface is a single transparent slab.
+- The interface is placeholder text, and the run has no sound at all.
+- The painted textures read as soft horizontal strata on every surface, walls and floors alike; the look pass should paint walls and stone apart.
+- At the wheel the camera sits close behind her right shoulder and the wall fills most of the frame.
+- The lock of hair at her left temple is still textured skin orange (Tripo's).

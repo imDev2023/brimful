@@ -2,7 +2,9 @@
 // sheet, to check the rig and the retargeting before trusting them in play:
 //
 //   unity command script eval 'return Brimful.EditorTools.HeroCheck.Render("Screenshots/hero-check.png");'
+//   unity command script eval 'return Brimful.EditorTools.HeroCheck.Render("Screenshots/hang.png", "Keyed/Hang_Loop@0,Keyed/Climb_Loop@0.25");'
 //
+// A pose is <folder under Assets/Animations>/<clip>@<share of the clip's length>, or "bind".
 // Each cell samples one clip at one moment on the prefab, in a neutral scene: a grey floor, a
 // warm sun from the upper right and a soft sky. The first cell is the bind pose (no clip).
 // Returns the joints' heights in each pose, so a foot through the floor or an arm through the
@@ -21,20 +23,17 @@ namespace Brimful.EditorTools
 {
     public static class HeroCheck
     {
-        static readonly (string clip, float t)[] Poses =
-        {
-            (null, 0f),
-            ("A_TPose", 0f),
-            ("Idle_Loop", 0.6f),
-            ("Jog_Fwd_Loop", 0.2f),
-            ("Jog_Fwd_Loop", 0.65f),
-            ("Jump_Loop", 0.5f),
-            ("ClimbUp_1m", 0.3f),
-            ("Push_Loop", 1.0f),
-        };
+        const string DefaultPoses =
+            "bind,Quaternius/A_TPose@0,Quaternius/Idle_Loop@0.6,Quaternius/Jog_Fwd_Loop@0.2,Quaternius/Jog_Fwd_Loop@0.65," +
+            "Quaternius/Jump_Loop@0.5,Quaternius/ClimbUp_1m@0.3,Quaternius/Push_Loop@1";
 
-        public static string Render(string outPath, int cell = 384)
+        public static string Render(string outPath, string poses = null, int cell = 384)
         {
+            var Poses = (poses ?? DefaultPoses).Split(',').Select(p =>
+            {
+                var parts = p.Trim().Split('@');
+                return parts[0] == "bind" ? ((string)null, 0f) : (parts[0], float.Parse(parts[1], System.Globalization.CultureInfo.InvariantCulture));
+            }).ToArray();
             var report = new StringBuilder();
             // Work in a scene of its own, and put the open scenes back afterwards. (An untitled
             // scene cannot be restored, and Unity refuses to add a scene beside one.)
@@ -92,7 +91,9 @@ namespace Brimful.EditorTools
                         AnimationMode.BeginSampling();
                         if (clipName != null)
                         {
-                            var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"Assets/Animations/Quaternius/{clipName}.anim");
+                            var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"Assets/Animations/{clipName}.anim");
+                            if (clip == null)
+                                throw new System.Exception($"no clip at Assets/Animations/{clipName}.anim");
                             AnimationMode.SampleAnimationClip(hero, clip, t * clip.length);
                         }
                         AnimationMode.EndSampling();
@@ -120,7 +121,7 @@ namespace Brimful.EditorTools
                 sheet.Apply();
                 Directory.CreateDirectory(Path.GetDirectoryName(outPath));
                 File.WriteAllBytes(outPath, sheet.EncodeToPNG());
-                report.AppendLine($"wrote {outPath}: poses {string.Join(", ", Poses.Select(p => p.clip ?? "bind"))}; rows front, side");
+                report.AppendLine($"wrote {outPath}: poses {string.Join(", ", Poses.Select(p => p.Item1 ?? "bind"))}; rows front, side");
             }
             finally
             {

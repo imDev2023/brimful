@@ -39,6 +39,11 @@ Read [SPEC.md](SPEC.md) for the game and what the concept video got wrong, and x
 - In edit mode a skinned mesh catches up with sampled bones only at the next update, so a check render shows the previous pose unless each `SkinnedMeshRenderer` has `forceMatrixRecalculationPerRender` set (`Assets/Editor/HeroCheck.cs` does).
 - Animation comes from Quaternius's Universal Animation Library (CC0), both packs' free Standard editions, retargeted by Unity's Humanoid system; neither has a ledge hang or a shimmy, so those are keyed on our rig.
   The packs come from quaternius.itch.io through "No thanks, just take me to the downloads"; `agent-browser download 'a.download_btn' <file>` saves them, the FBX files live in the gitignored `raw/ual/` and `Assets/_Imported/Quaternius/`, and only the clips in use are copied to `Assets/Animations/`.
+- The stretch is generated: `Assets/Editor/StretchBuilder.cs` writes `Assets/Scenes/Stretch.unity` and everything under `Assets/Environment/`, so change the builder, never the scene by hand; each rebuild gives the scene's objects new IDs, so the scene's diff is noise, and the builder's is what to review.
+- Test every gameplay change with `tools/playtest.sh` (a resident Editor must be up): it recompiles, rebuilds, plays the stretch with the scripted pilot and records it, and exits 0 only when the pilot reaches the goal; then look at its contact sheet and at the frames around any large frame-to-frame change.
+  The shipped build is tested the same way: `Brimful.EditorTools.BuildPlayer.Mac()`, then `Builds/Mac/Brimful.app/Contents/MacOS/Brimful -batchmode -nographics -pilot -pilotLog <file>` exits 0 when the pilot passes.
+  A change to the route must move the markers under the scene's "Pilot" object with it (the builder places them).
+- Build the Mac player universal (Intel and Apple Silicon): Unity's default is Apple Silicon only, which fails on this Intel Mac with "bad CPU type"; Unity warns that Intel macOS support is deprecated, which is expected here.
 - Steam bans games that issue or trade crypto or NFTs (its 2021 rule, still in place on 2026-11-10), so a blockchain build ships from our own site or Epic.
   Keep chain code out of the game's rules; nothing touches a chain until the game is built.
 

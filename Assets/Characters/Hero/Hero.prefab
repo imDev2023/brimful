@@ -53,6 +53,14 @@ PrefabInstance:
       value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7b1847de6506845148b71c9c7e4252b0, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4826a8b0f49974004a89c45445400684, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
@@ -63,5 +71,88 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 657716945456079067}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4699799572034137326}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7709254502821502819}
   m_SourcePrefab: {fileID: 100100000, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+--- !u!1 &2628782681497464511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4826a8b0f49974004a89c45445400684, type: 3}
+  m_PrefabInstance: {fileID: 2934700138378548206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &657716945456079067
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628782681497464511}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.62
+  m_Radius: 0.24
+  m_SlopeLimit: 50
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.02
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.83, z: 0}
+--- !u!114 &4699799572034137326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628782681497464511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b4ffce526c64e73ac19d7050a0bcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Brimful.HeroInput
+  actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!114 &7709254502821502819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628782681497464511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e9194073c70418ba5620448b3e83e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Brimful.HeroController
+  runSpeed: 4.2
+  sprintSpeed: 6
+  acceleration: 22
+  turnSpeed: 720
+  jumpHeight: 1.15
+  gravity: 22
+  airAcceleration: 7
+  coyoteTime: 0.12
+  jumpBuffer: 0.15
+  climbSpeed: 1.15
+  wallOffset: 0.3
+  wallReach: 0.45
+  chestHeight: 1.15
+  hangHandHeight: 1.73
+  hangOffset: 0.26
+  shimmySpeed: 1
+  grabRadius: 0.4
+  pullUpSeconds: 0.95
+  cameraTransform: {fileID: 0}
