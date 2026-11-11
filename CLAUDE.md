@@ -28,10 +28,17 @@ Read [SPEC.md](SPEC.md) for the game and what the concept video got wrong, and x
 - Installed build modules: Mac and Web; add Windows Build Support (Mono) in Unity Hub before the first Windows build.
 - The LuLu firewall on this Mac (alert mode) blocks every program it has no rule for, and on 2026-11-10 it had none for the editor or its package manager: the package manager logged `ECONNRESET`, `ETIMEDOUT` and `connect EBADF` to `packages.unity.com` while `curl` and Node reached it fine.
   Only the owner can allow a program in LuLu; a new editor version is a new path and needs its own rule.
+  By 2026-11-11 it had one: the package manager downloaded `com.unity.pipeline` from `packages.unity.com` in 6 s.
 - Open the project headless with `/Applications/Unity/Hub/Editor/6000.6.8f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -projectPath <this folder> -logFile <log>`, started with `run_in_background`; the package manager's own log is `Logs/upm.log`.
 - Unity's agent plugin edits scenes and assets directly, so commit before every larger change.
   The owner installed it for this folder only on 2026-11-10 (`claude plugin install unity@unity-agent-plugin --scope local`, enabled in the git-ignored `.claude/settings.local.json`); it loads in a session started in this folder, and `/unity:` lists its skills.
-- Characters go to Unity as FBX with Mixamo bone names, which the Humanoid importer maps by itself (Kensei); check the export once with a deliberately lopsided marker before trusting it.
+- Characters go to Unity as FBX with Mixamo bone names, which the Humanoid importer maps by itself (Kensei): `tools/rig_unity.py` writes them into `Assets/Characters/<name>/`, `Assets/Editor/BrimfulImport.cs` sets every import option by folder, and `Assets/Editor/HeroSetup.cs` builds the material, the prefab and the clips.
+  The lopsided-marker check passed on 2026-11-11 (a box skinned to the left hand imported on her left, toes along +Z), so the export keeps left as left.
+- Drive Unity through the `unity` CLI and the project's Pipeline package (`com.unity.pipeline`, added 2026-11-11): start a resident headless Editor with the batch command above minus `-quit`, with `run_in_background`, wait with `unity status --until-ready --project-path <this folder>`, run C# with `unity command script eval --caller plugin --skill unity-cli`, and stop it with TaskStop when done.
+  After adding or changing a script, `AssetDatabase.Refresh()` returns before the compile: run `unity recompile --project-path <this folder>` and `unity status --until-ready` before calling the new code, or the eval fails with "type does not exist" or "no Pipeline instance".
+- In edit mode a skinned mesh catches up with sampled bones only at the next update, so a check render shows the previous pose unless each `SkinnedMeshRenderer` has `forceMatrixRecalculationPerRender` set (`Assets/Editor/HeroCheck.cs` does).
+- Animation comes from Quaternius's Universal Animation Library (CC0), both packs' free Standard editions, retargeted by Unity's Humanoid system; neither has a ledge hang or a shimmy, so those are keyed on our rig.
+  The packs come from quaternius.itch.io through "No thanks, just take me to the downloads"; `agent-browser download 'a.download_btn' <file>` saves them, the FBX files live in the gitignored `raw/ual/` and `Assets/_Imported/Quaternius/`, and only the clips in use are copied to `Assets/Animations/`.
 - Steam bans games that issue or trade crypto or NFTs (its 2021 rule, still in place on 2026-11-10), so a blockchain build ships from our own site or Epic.
   Keep chain code out of the game's rules; nothing touches a chain until the game is built.
 

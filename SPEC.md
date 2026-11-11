@@ -221,3 +221,32 @@ The tunic stands well off the sunlit walls (luma 147 to 158); the skin's orange 
 Sheet 1's front, left (view 2) and back, cut with [tools/cut_views.py](tools/cut_views.py) `--left 2 --right 0` into [concept/hero-views.jpg](concept/hero-views.jpg).
 fal's Tripo multiview endpoint takes 2 to 4 views in the order front, left, back and right, so only the last can be left out; a mirrored left view would have put the pouch on both hips, and sheet 2's left view does.
 Tripo infers her right side from the front and back views, which both show the pouch clearly.
+
+## The hero in 3D
+
+Lifted on 2026-11-11 with Tripo H3.1 multiview on fal (`tripo3d/h3.1/multiview-to-3d`, detailed geometry and texture, 60 credits, 0.60 USD) from the three views; the arguments are in [prompts/hero3d-woman.json](prompts/hero3d-woman.json).
+Tripo returned one mesh of 1,995,420 triangles with one material and three 4K maps (colour, a normal map and an ORM map), 62.8 MB; the original stays in `raw/`.
+
+Checked from eight sides and up close on the head with [tools/turntable.py](tools/turntable.py):
+
+- The sides Tripo inferred agree with the sheet: the pouch shows from her right and from behind on her right, and not from her left.
+- The face, the bun, the wrist wraps and the shin bands came through as drawn; the hands are open and empty, with no fingers fused to the body.
+- **Fault:** the sheet's curl of hair at her left temple became a lock of hair textured partly in skin orange, in the original as well as the cut, so it is Tripo's; it shows from the front and her left.
+- **Fault:** in a neutral light the skin reads wet; the ORM map's roughness averages 0.83, but the face is glossier, so the Unity material halves the map's smoothness.
+
+### Cut to budget
+
+`tools/simplify.sh` cut it to 49,864 triangles with 2048 px maps (3.35 MB), a desktop hero's budget.
+At that size the face showed flat patches on the forehead, the cheeks and around the nose, with or without the normal map, and a 100,000-triangle cut only made them smaller: a simplified mesh keeps each surviving vertex's normal from the dense original, and spread over larger triangles those local bumps show.
+Recomputing smooth normals from the cut mesh itself took the patches away, and [tools/rig_unity.py](tools/rig_unity.py) now does that before rigging.
+
+### Rigged for Unity
+
+[tools/rig_unity.py](tools/rig_unity.py) is Lamplighter's rig with an FBX export for Unity: she stands 1.65 m tall, faces Unity's +Z, and has 22 bones with Mixamo names, the crotch at 0.634 m, the knees at 0.404 m and the shoulders at 1.312 m, her arms 32 degrees off vertical; every vertex has a weight, and 2,156 vertices near the tunic's hem hand part of the thighs' weight to the hips.
+Unity's Humanoid importer mapped all 22 bones by name, with no avatar set up by hand.
+The left-right check passed: a box skinned to the left hand alone imported at x = -0.55 m, outside her left hand at -0.41 m, with her toes pointing along +Z.
+
+Motion comes from Quaternius's Universal Animation Library (CC0), the free Standard editions of both packs, retargeted by Unity's Humanoid system: the first pack has the idle, walk, jog, sprint, the jump in three parts, a roll and a push; the second adds `ClimbUp_1m`, a ninja jump and `Chest_Open`.
+Neither pack has a ledge hang or a shimmy, in the free or the paid edition, so those are keyed on our rig for the prototype.
+[Assets/Editor/HeroCheck.cs](Assets/Editor/HeroCheck.cs) renders the prefab in eight poses from the front and the side: the A-posed rig retargets to a true T-pose (hands at 1.29 m against shoulders at 1.31 m), and the jog, jump, pull-up and push read naturally, with the tunic following the hips and no trousers through the hem.
+A foot joint dips 4 cm below the floor at one moment of the jog, which the controller's foot IK will take care of.

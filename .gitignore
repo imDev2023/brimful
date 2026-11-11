@@ -35,3 +35,13 @@ crashlytics-build.properties
 node_modules/
 # Paid generator outputs and full-length takes: the only copy, never delete.
 raw/
+
+# Third-party animation sources (Quaternius UAL, CC0) live in raw/ual; only the clips the
+# game uses are copied into Assets/Animations, by Assets/Editor/HeroSetup.cs.
+/Assets/_Imported/
+/Assets/_Imported.meta
+# One-time checks, never shipped.
+/Assets/_Checks/
+/Assets/_Checks.meta
+# Check renders from the editor tools.
+/Screenshots/
